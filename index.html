@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Castine Method | Operational Excellence & Formation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Classical Serif & Academic Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'castine-navy': '#0d1b2a',
+                        'castine-deep-blue': '#1b263b',
+                        'castine-parchment': '#f4f0ea',
+                        'castine-paper-light': '#fdfbf7',
+                        'castine-gold': '#c5a059',
+                        'castine-dark-gold': '#9a7b38',
+                        'castine-text': '#2b2d42',
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        garamond: ['Cormorant Garamond', 'serif'],
+                        sans: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f4f0ea;
+            color: #2b2d42;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Classical Paper Texture Overlay */
+        .parchment-bg {
+            background-color: #f4f0ea;
+            background-image: radial-gradient(#e2d9cc 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .hero-gradient {
+            background: linear-gradient(180deg, #0d1b2a 0%, #1b263b 100%);
+        }
+        .gold-border {
+            border-image: linear-gradient(to right, transparent, #c5a059, transparent) 1;
+        }
+        .tab-btn.active {
+            border-bottom: 2px solid #c5a059;
+            color: #c5a059;
+        }
+    </style>
+</head>
+<body class="parchment-bg min-h-screen flex flex-col justify-between selection:bg-castine-gold selection:text-white">
+
+    <!-- HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-50 hero-gradient border-b border-castine-gold/30 shadow-xl">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <!-- Crest & Brand Title -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('method')">
+                <div class="w-10 h-10 border border-castine-gold flex items-center justify-center rounded-sm bg-castine-navy/80">
+                    <span class="font-cinzel text-castine-gold font-bold text-lg">C</span>
+                </div>
+                <div>
+                    <h1 class="font-cinzel text-castine-gold text-lg md:text-xl font-bold tracking-widest leading-none">CASTINE</h1>
+                    <p class="font-garamond italic text-gray-300 text-xs tracking-wider">Formation & Operations Partners</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <nav class="hidden md:flex space-x-8 font-cinzel text-xs tracking-wider text-gray-200">
+                <button onclick="switchTab('method')" id="tab-btn-method" class="tab-btn active hover:text-castine-gold transition py-1">METHOD</button>
+                <button onclick="switchTab('work')" id="tab-btn-work" class="tab-btn hover:text-castine-gold transition py-1">WORK</button>
+                <button onclick="switchTab('papers')" id="tab-btn-papers" class="tab-btn hover:text-castine-gold transition py-1">CASTINE PAPERS</button>
+                <button onclick="switchTab('about')" id="tab-btn-about" class="tab-btn hover:text-castine-gold transition py-1">ABOUT</button>
+                <button onclick="switchTab('engage')" id="tab-btn-engage" class="bg-castine-gold hover:bg-castine-dark-gold text-castine-navy font-bold px-4 py-1.5 rounded-sm transition">ENGAGE</button>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-castine-gold" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden hero-gradient border-t border-castine-gold/20 px-4 py-4 space-y-3 font-cinzel text-center text-sm text-gray-200">
+            <button onclick="switchTab('method'); toggleMobileMenu();" class="block w-full py-1 hover:text-castine-gold">METHOD</button>
+            <button onclick="switchTab('work'); toggleMobileMenu();" class="block w-full py-1 hover:text-castine-gold">WORK</button>
+            <button onclick="switchTab('papers'); toggleMobileMenu();" class="block w-full py-1 hover:text-castine-gold">CASTINE PAPERS</button>
+            <button onclick="switchTab('about'); toggleMobileMenu();" class="block w-full py-1 hover:text-castine-gold">ABOUT</button>
+            <button onclick="switchTab('engage'); toggleMobileMenu();" class="block w-full py-2 bg-castine-gold text-castine-navy font-bold rounded-sm">ENGAGE</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow">
+
+        <!-- TAB 1: THE METHOD (LANDING / HERO) -->
+        <section id="view-method" class="tab-content">
+            <!-- Hero Banner -->
+            <div class="hero-gradient text-white py-16 px-4 border-b border-castine-gold/40 relative">
+                <div class="max-w-4xl mx-auto text-center space-y-4">
+                    <p class="font-cinzel text-castine-gold tracking-widest text-xs uppercase">Operational Excellence Requires Formation</p>
+                    <h2 class="font-garamond text-3xl md:text-5xl font-light italic leading-tight">"Restore flow. Identify constraints. Build systems that endure."</h2>
+                    <p class="font-sans font-light text-gray-300 text-sm max-w-2xl mx-auto">Where constraint is not understood, effort multiplies and results fragment. Where structure is restored, performance follows.</p>
+                    <div class="pt-4">
+                        <button onclick="switchTab('engage')" class="bg-castine-gold hover:bg-castine-dark-gold text-castine-navy font-cinzel font-bold text-xs tracking-widest px-8 py-3 rounded-sm shadow-lg transition">
+                            REQUEST A CONSTRAINT SCAN
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Pillars Section -->
+            <div class="max-w-5xl mx-auto px-4 py-16 space-y-16">
+                <div class="text-center space-y-2">
+                    <h3 class="font-cinzel text-2xl text-castine-navy font-bold tracking-wider">Flow • Order • Rhythm</h3>
+                    <div class="w-24 h-0.5 bg-castine-gold mx-auto"></div>
+                    <p class="font-garamond italic text-lg text-gray-600">We align your operation to what truly governs performance.</p>
+                </div>
+
+                <!-- 6-Step Method Diagram -->
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-3 text-center">
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-4 rounded-sm shadow-sm">
+                        <div class="font-cinzel text-castine-gold font-bold text-xs">01</div>
+                        <div class="font-cinzel text-castine-navy font-bold text-xs mt-1">OBSERVE</div>
+                        <p class="text-[11px] text-gray-500 mt-2 font-sans">Identify governing constraint through data.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-4 rounded-sm shadow-sm">
+                        <div class="font-cinzel text-castine-gold font-bold text-xs">02</div>
+                        <div class="font-cinzel text-castine-navy font-bold text-xs mt-1">FOCUS</div>
+                        <p class="text-[11px] text-gray-500 mt-2 font-sans">Dedicate capacity directly to constraint.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-4 rounded-sm shadow-sm">
+                        <div class="font-cinzel text-castine-gold font-bold text-xs">03</div>
+                        <div class="font-cinzel text-castine-navy font-bold text-xs mt-1">PROTECT</div>
+                        <p class="text-[11px] text-gray-500 mt-2 font-sans">Shield constraint from upstream variation.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-4 rounded-sm shadow-sm">
+                        <div class="font-cinzel text-castine-gold font-bold text-xs">04</div>
+                        <div class="font-cinzel text-castine-navy font-bold text-xs mt-1">GOVERN</div>
+                        <p class="text-[11px] text-gray-500 mt-2 font-sans">Manage point of constraint using buffers.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-4 rounded-sm shadow-sm">
+                        <div class="font-cinzel text-castine-gold font-bold text-xs">05</div>
+                        <div class="font-cinzel text-castine-navy font-bold text-xs mt-1">ACCELERATE</div>
+                        <p class="text-[11px] text-gray-500 mt-2 font-sans">Maximize throughput & reduce lead times.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-4 rounded-sm shadow-sm">
+                        <div class="font-cinzel text-castine-gold font-bold text-xs">06</div>
+                        <div class="font-cinzel text-castine-navy font-bold text-xs mt-1">INSTITUTIONALIZE</div>
+                        <p class="text-[11px] text-gray-500 mt-2 font-sans">Embed new rhythm across system.</p>
+                    </div>
+                </div>
+
+                <!-- Drum • Buffer • Rope Explanation -->
+                <div class="bg-castine-paper-light border border-castine-gold/40 p-8 rounded-sm shadow-md grid md:grid-cols-3 gap-6 items-center">
+                    <div class="md:col-span-2 space-y-3">
+                        <span class="font-cinzel text-xs text-castine-gold font-bold tracking-widest uppercase">Theory of Constraints in Action</span>
+                        <h4 class="font-garamond text-2xl font-bold text-castine-navy">Lugo Breadworks: Bottleneck to Clarity</h4>
+                        <p class="font-garamond text-lg text-gray-700 italic">"We identified the primary constraint, optimized queue release, and increased operational throughput by 40% within weeks."</p>
+                    </div>
+                    <div class="bg-castine-navy text-white p-6 rounded-sm text-center space-y-2 border border-castine-gold/50">
+                        <div class="font-cinzel text-castine-gold font-bold text-sm">DRUM • BUFFER • ROPE</div>
+                        <p class="text-xs text-gray-300 font-sans">Synchronizing release rates with real system constraint capacity.</p>
+                    </div>
+                </div>
+
+                <!-- Expected Outcomes Stats -->
+                <div class="border-t border-b border-castine-gold/30 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                    <div>
+                        <div class="font-garamond text-3xl font-bold text-castine-navy">30%–60%</div>
+                        <div class="font-cinzel text-xs text-castine-gold mt-1">FASTER LEAD TIMES</div>
+                    </div>
+                    <div>
+                        <div class="font-garamond text-3xl font-bold text-castine-navy">20%–40%</div>
+                        <div class="font-cinzel text-xs text-castine-gold mt-1">HIGHER RELIABILITY</div>
+                    </div>
+                    <div>
+                        <div class="font-garamond text-3xl font-bold text-castine-navy">15%–25%</div>
+                        <div class="font-cinzel text-xs text-castine-gold mt-1">CAPACITY INCREASE</div>
+                    </div>
+                    <div>
+                        <div class="font-garamond text-3xl font-bold text-castine-navy">50%–80%</div>
+                        <div class="font-cinzel text-xs text-castine-gold mt-1">REDUCTION IN MULTITASKING</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: WORK (CASE STUDIES) -->
+        <section id="view-work" class="tab-content hidden">
+            <div class="max-w-5xl mx-auto px-4 py-12 space-y-12">
+                <div class="text-center space-y-2">
+                    <p class="font-cinzel text-castine-gold text-xs font-bold tracking-widest">CASE STUDIES & PROVEN RESULTS</p>
+                    <h2 class="font-garamond text-3xl font-bold text-castine-navy">Restoring Flow in Real Systems</h2>
+                    <p class="font-garamond italic text-gray-600 text-lg">Systems do not improve through effort alone. They improve when the constraint is governed.</p>
+                </div>
+
+                <!-- Work Cards Grid -->
+                <div class="space-y-6">
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-6 rounded-sm shadow-sm grid md:grid-cols-3 gap-4 items-center">
+                        <div>
+                            <h3 class="font-garamond font-bold text-xl text-castine-navy">Precision Manufacturing</h3>
+                            <p class="font-sans text-xs text-gray-500 italic">Missed deliveries, high WIP, unstable flow</p>
+                        </div>
+                        <div class="text-sm font-sans text-gray-700">
+                            <strong>Constraint:</strong> Assay testing bottleneck & unchecked release.
+                        </div>
+                        <div class="bg-castine-navy text-white p-4 rounded-sm text-xs font-sans space-y-1">
+                            <p class="text-castine-gold font-bold">RESULTS:</p>
+                            <p>• Lead time reduced 40%–60%</p>
+                            <p>• Throughput increased 35%–65%</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-6 rounded-sm shadow-sm grid md:grid-cols-3 gap-4 items-center">
+                        <div>
+                            <h3 class="font-garamond font-bold text-xl text-castine-navy">Laboratory Operations</h3>
+                            <p class="font-sans text-xs text-gray-500 italic">Long cycle times, backlog, priority conflicts</p>
+                        </div>
+                        <div class="text-sm font-sans text-gray-700">
+                            <strong>Constraint:</strong> Ungoverned testing queue & multitasking.
+                        </div>
+                        <div class="bg-castine-navy text-white p-4 rounded-sm text-xs font-sans space-y-1">
+                            <p class="text-castine-gold font-bold">RESULTS:</p>
+                            <p>• Backlog reduced 50%</p>
+                            <p>• Lead times reduced 30%–40%</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-castine-paper-light border border-castine-gold/30 p-6 rounded-sm shadow-sm grid md:grid-cols-3 gap-4 items-center">
+                        <div>
+                            <h3 class="font-garamond font-bold text-xl text-castine-navy">Call Center Flow</h3>
+                            <p class="font-sans text-xs text-gray-500 italic">Priority conflicts, rising abandonment</p>
+                        </div>
+                        <div class="text-sm font-sans text-gray-700">
+                            <strong>Constraint:</strong> Queue discipline & routing variance.
+                        </div>
+                        <div class="bg-castine-navy text-white p-4 rounded-sm text-xs font-sans space-y-1">
+                            <p class="text-castine-gold font-bold">RESULTS:</p>
+                            <p>• Abandoned calls reduced 50%–70%</p>
+                            <p>• Talk time stabilized across shifts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: CASTINE PAPERS (ESSAYS) -->
+        <section id="view-papers" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto px-4 py-12 space-y-10">
+                <div class="text-center space-y-2">
+                    <p class="font-cinzel text-castine-gold text-xs font-bold tracking-widest">EXECUTIVE ESSAYS & MONOGRAPHS</p>
+                    <h2 class="font-garamond text-3xl font-bold text-castine-navy">The Castine Papers</h2>
+                    <p class="font-garamond italic text-gray-600 text-lg">On structure, restraint, and the formation required to govern systems well.</p>
+                </div>
+
+                <!-- Featured Essay Card -->
+                <div class="bg-castine-paper-light border border-castine-gold/50 p-8 rounded-sm shadow-md space-y-4">
+                    <div class="flex justify-between items-center text-xs font-cinzel text-castine-gold">
+                        <span>CASTINE PAPER NO. 1</span>
+                        <span>10–12 MINUTE READ</span>
+                    </div>
+                    <h3 class="font-garamond text-3xl font-bold text-castine-navy">The Architecture of the Soul</h3>
+                    <p class="font-garamond text-lg italic text-gray-700">"A system cannot exceed the discipline of those who govern it. Nor can effectiveness precede formation or restraint."</p>
+                    <p class="font-sans text-xs text-gray-600 leading-relaxed">Most organizations do not lack effort. They are active, engaged, and urgent. Yet work increases while results fragment. Where structure is absent, effort multiplies—but performance does not endure.</p>
+                    <div class="pt-2">
+                        <button onclick="switchTab('engage')" class="text-xs font-cinzel text-castine-navy font-bold border-b border-castine-gold hover:text-castine-gold transition">
+                            READ FULL MONOGRAPH & REQUEST SCAN ➔
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Monograph Grid -->
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-castine-paper-light border border-castine-gold/20 p-5 rounded-sm">
+                        <h4 class="font-garamond font-bold text-lg text-castine-navy">Flow vs. Effort</h4>
+                        <p class="font-sans text-xs text-gray-500 mt-1">Why activity is often mistaken for productivity in mid-market operations.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/20 p-5 rounded-sm">
+                        <h4 class="font-garamond font-bold text-lg text-castine-navy">The Myth of Efficiency</h4>
+                        <p class="font-sans text-xs text-gray-500 mt-1">Why local optimizations destroy global throughput.</p>
+                    </div>
+                    <div class="bg-castine-paper-light border border-castine-gold/20 p-5 rounded-sm">
+                        <h4 class="font-garamond font-bold text-lg text-castine-navy">Constraint as Stewardship</h4>
+                        <p class="font-sans text-xs text-gray-500 mt-1">Governing systems with restraint, order, and institutional clarity.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 4: ABOUT -->
+        <section id="view-about" class="tab-content hidden">
+            <div class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+                <div class="text-center space-y-2">
+                    <p class="font-cinzel text-castine-gold text-xs font-bold tracking-widest">LEADERSHIP & PHILOSOPHY</p>
+                    <h2 class="font-garamond text-3xl font-bold text-castine-navy">About Castine</h2>
+                    <p class="font-garamond italic text-gray-600 text-lg">On stewardship, formation, and the discipline required to govern systems well.</p>
+                </div>
+
+                <div class="bg-castine-paper-light border border-castine-gold/40 p-8 rounded-sm shadow-md grid md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-2 space-y-4">
+                        <h3 class="font-garamond text-2xl font-bold text-castine-navy">The Work of the Consultant</h3>
+                        <p class="font-garamond text-lg font-bold text-castine-gold">André Lugo — 25+ years of frontline execution across industries.</p>
+                        <ul class="font-sans text-xs text-gray-700 space-y-2">
+                            <li>• Senior Theory of Constraints (TOC) practitioner</li>
+                            <li>• Process improvement & industrial operational stewardship</li>
+                            <li>• Executive leadership coaching and organizational formation</li>
+                            <li>• Focused on retaining clarity around true operational constraint</li>
+                        </ul>
+                    </div>
+                    <div class="border border-castine-gold/30 p-6 text-center space-y-3 bg-castine-navy text-white rounded-sm">
+                        <div class="font-cinzel text-castine-gold text-sm font-bold">THREE PILLARS</div>
+                        <div class="text-xs font-garamond space-y-2">
+                            <p><strong>PLATO:</strong> Formation of the soul</p>
+                            <p><strong>TOC:</strong> Governing the constraint</p>
+                            <p><strong>ST. BENEDICT:</strong> Rule, rhythm & discipline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 5: ENGAGE (CONSTRAINT SCAN / QUESTIONNAIRE FORM) -->
+        <section id="view-engage" class="tab-content hidden">
+            <div class="max-w-3xl mx-auto px-4 py-12 space-y-8">
+                <div class="text-center space-y-2">
+                    <p class="font-cinzel text-castine-gold text-xs font-bold tracking-widest">EXECUTIVE READINESS QUESTIONNAIRE</p>
+                    <h2 class="font-garamond text-3xl font-bold text-castine-navy">Request a Castine Constraint Scan</h2>
+                    <p class="font-garamond italic text-gray-600 text-lg">Complete the diagnostic below. Upon submission, serious prospects are automatically redirected to schedule an Executive Clarity Conversation.</p>
+                </div>
+
+                <!-- Formspree Form Integration -->
+                <form action="https://formspree.io/f/xdaqlwey" method="POST" class="bg-castine-paper-light border border-castine-gold/50 p-8 rounded-sm shadow-lg space-y-6 font-sans text-xs">
+                    
+                    <!-- Contact Info -->
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">Executive Name *</label>
+                            <input type="text" name="executive_name" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="First & Last Name">
+                        </div>
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">Corporate Email *</label>
+                            <input type="email" name="corporate_email" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="exec@company.com">
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">Phone Number *</label>
+                            <input type="tel" name="phone_number" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="(555) 000-0000">
+                        </div>
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">Organization Name *</label>
+                            <input type="text" name="organization_name" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="Company Name">
+                        </div>
+                    </div>
+
+                    <hr class="border-castine-gold/30">
+
+                    <!-- Questions 1 to 8 -->
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">1. Current Business Condition & Primary Operational Friction *</label>
+                            <textarea name="q1_business_condition" rows="2" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="Describe the current operational friction..."></textarea>
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">2. Measurable Result / Outcome Sought *</label>
+                            <input type="text" name="q2_measurable_result" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="e.g., Reduce cycle time by 30%, eliminate backlog">
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">3. Duration of Issue *</label>
+                            <select name="q3_duration" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none">
+                                <option value="">Select duration...</option>
+                                <option value="Less than six months">Less than six months</option>
+                                <option value="Six to twelve months">Six to twelve months</option>
+                                <option value="One to three years">One to three years</option>
+                                <option value="More than three years">More than three years</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block font-cinzel text-castine-navy font-bold mb-1">4. Previous Resolution Attempts *</label>
+                            <textarea name="q4_previous_attempts" rows="2" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none" placeholder="What lean, consultant, or software solutions have you already tried?"></textarea>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-cinzel text-castine-navy font-bold mb-1">5. Designated Executive Sponsor? *</label>
+                                <select name="q5_executive_sponsor" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none">
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block font-cinzel text-castine-navy font-bold mb-1">6. On-Site Operational Observation? *</label>
+                                <select name="q6_operational_observation" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none">
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-cinzel text-castine-navy font-bold mb-1">7. Information Sharing Willingness *</label>
+                                <select name="q7_information_sharing" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none">
+                                    <option value="">Select...</option>
+                                    <option value="Yes, subject to confidentiality agreement">Yes, subject to NDA</option>
+                                    <option value="Restricted">Restricted</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block font-cinzel text-castine-navy font-bold mb-1">8. Systemic Openness to Change *</label>
+                                <select name="q8_systemic_openness" required class="w-full bg-white border border-gray-300 p-2.5 rounded-sm focus:border-castine-gold focus:outline-none">
+                                    <option value="">Select...</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="Unsure">Unsure</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-castine-navy hover:bg-castine-deep-blue text-castine-gold border border-castine-gold font-cinzel font-bold text-sm tracking-widest py-3 rounded-sm shadow-md transition">
+                        SUBMIT QUESTIONNAIRE & SCHEDULE ➔
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="hero-gradient text-white border-t border-castine-gold/30 py-8 px-4 text-center text-xs font-sans">
+        <div class="max-w-4xl mx-auto space-y-3">
+            <p class="font-cinzel text-castine-gold tracking-widest font-bold">CASTINE FORMATION & OPERATIONS PARTNERS</p>
+            <p class="text-gray-400">A consulting practice focused on flow, order, and operational stewardship.</p>
+            <p class="text-gray-500 text-[10px]">© 2026 The Castine Method. All Rights Reserved. Powered by GhostOps Global.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR TAB SWITCHING -->
+    <script>
+        function switchTab(tabName) {
+            // Hide all tab content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(el => el.classList.add('hidden'));
+
+            // Deactivate all tab buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show target tab
+            const targetView = document.getElementById('view-' + tabName);
+            if (targetView) targetView.classList.remove('hidden');
+
+            // Highlight target button
+            const targetBtn = document.getElementById('tab-btn-' + tabName);
+            if (targetBtn) targetBtn.classList.add('active');
+
+            // Scroll smoothly to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
